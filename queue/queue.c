@@ -70,7 +70,7 @@ int size(struct queue *target)
 
 struct queue *create_queue(unsigned capacity)
 {
-    struct queue *new_queue;
+    struct queue *new_queue = (struct queue*)malloc(sizeof(struct queue));
 
     new_queue->cap = capacity;
     new_queue->size = 0;

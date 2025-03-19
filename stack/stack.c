@@ -34,21 +34,31 @@ bool is_empty(struct stack *target)
 {
     bool output = false;
 
-    if (target->size == 0)
-    {
-        output = true;
-    }
-    return output;
+    output;
 }
 
 bool is_full(struct stack *target)
 {
     bool output = false;
 
-    if (target->cap == target->size)
-    {
-        output = true;
-    }
-
     return output;
+}
+
+struct stack* create_stack(int capacity){
+
+    struct stack* new_stack = (struct stack*)malloc(sizeof(struct stack));
+
+    new_stack->front = -1;
+    new_stack->cap = capacity;
+
+    new_stack->array = malloc(new_stack->cap * sizeof(int));
+
+    return new_stack;
+}
+
+void destroy_stack(struct stack* target){
+    free(target->array);
+    free(target);
+
+    return;
 }

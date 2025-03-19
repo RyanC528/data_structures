@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef STACK_H
+#define STACK_H
 #include <stdbool.h>
 
 struct stack
@@ -9,7 +9,9 @@ struct stack
     int *array;
 };
 
-struct stack *create_stack();
+struct stack* create_stack();
+
+void destroy_stack();
 
 void push();
 
