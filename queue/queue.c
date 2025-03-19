@@ -12,8 +12,7 @@ void enqueue(struct queue *target, int input)
     }
     else
     {
-        target->array[target->rear] = input;
-        target->rear++;
+        target->array[target->size] = input;
     }
 }
 
@@ -27,12 +26,10 @@ void dequeue(struct queue *target, int input)
     else
     {
 
-        for (int i = 0; i < target->rear - 1; i++)
+        for (int i = 0; i < target->size - 1; i++)
         {
             target->array[i] = target->array[i + 1];
         }
-
-        target->rear--;
     }
     return;
 }
@@ -40,11 +37,6 @@ void dequeue(struct queue *target, int input)
 int peek(struct queue *target)
 {
     return target->front;
-}
-
-int rear(struct queue *target)
-{
-    return target->rear;
 }
 
 bool is_full(struct queue *target)
@@ -74,4 +66,24 @@ bool is_empty(struct queue *target)
 int size(struct queue *target)
 {
     return target->size;
+}
+
+struct queue *create_queue(unsigned capacity)
+{
+    struct queue *new_queue;
+
+    new_queue->cap = capacity;
+    new_queue->size = 0;
+    new_queue->front = -1;
+    new_queue->array = malloc(new_queue->cap * sizeof(int));
+
+    return new_queue;
+}
+
+void destroy_queue(struct queue *target)
+{
+    free(target->array);
+    free(target);
+
+    return;
 }

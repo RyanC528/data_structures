@@ -4,7 +4,7 @@
 
 struct queue
 {
-    int front, rear, size;
+    int front, size;
     unsigned cap;
     int *array;
 };
@@ -17,12 +17,12 @@ void dequeue();
 
 int peek();
 
-int rear();
-
 bool is_full();
 
 bool is_empty();
 
 int size();
+
+void destroy_queue();
 
 #endif
