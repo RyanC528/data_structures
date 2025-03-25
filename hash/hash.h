@@ -22,9 +22,11 @@ static void destroy_item();
 
 void destroy_table();
 
+static int hash();
+
 void hash_insert();
 
-void hash_search();
+char* hash_search();
 
 void hash_delete();
 
